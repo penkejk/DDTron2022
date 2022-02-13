@@ -9,7 +9,7 @@ from events.models import Event
 
 class Wish(models.Model):
     text = CharField(max_length=2000)
-    event = CharField(max_length=100)              #models.ForeignKey(Event, on_delete=models.DO_NOTHING, default=0)
-    owner = CharField(max_length=100)             #models.ForeignKey(Person, on_delete=models.DO_NOTHING, default=0)
+    event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
+    owner = models.ForeignKey(Person, on_delete=models.DO_NOTHING)
 
 
