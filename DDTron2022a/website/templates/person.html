@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Email</th>
+        <td>{{ person.person_email }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ person.person_name }}</td>
+    </tr>
+    <tr>
+        <th>My wish</th>
+        <td>{{ my_wish.wish_text }}</td>
+    </tr>
+    <tr>
+        <th>Received wish </th>
+        <td>{{ received_wish.wish_text }}</td>
+    </tr>    
+</table>
+{% endblock content %}
