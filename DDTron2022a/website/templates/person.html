@@ -10,10 +10,23 @@
         <th>Name</th>
         <td>{{ person.person_name }}</td>
     </tr>
+
+    {% if my_wish %}
     <tr>
         <th>My wish</th>
         <td>{{ my_wish.wish_text }}</td>
     </tr>
+
+    {% else %}
+
+    <tr>
+        <th>My wish</th>
+        <td>Enter your wish:</td>
+        <td><input id="my_wish" type="text"></td>
+    </tr>
+
+    {% endif %} 
+
     {% if received_wish %}
     <tr>
         <th>Received wish </th>
