@@ -7,14 +7,25 @@ from people.models import Person, Group
 from wishes.models import Wish
 from events.models import Event
 
+
+def get_received_wish(pk):
+    related_wishes =   Wish.objects.select_related().filter(assigned_to_id = pk)
+    if (len(related_wishes)==1):
+        return related_wishes[0]
+    else:
+        return None
+
+
+
+
 def person_view(request, pk):
     template="person.html"
     context={}
     if request.method == "GET":
         person = Person.objects.get(id=pk)
-        #my_wish = Wish.objects.get(author_rel = pk)
-        #received_wish = Wish.objects.get(assigned_rel = pk)
+        my_wish = Wish.objects.select_related('author').get(author_id=pk)
+        received_wish = get_received_wish(pk)
         context['person'] = person
-        #context['my_wish'] = my_wish
-        #context['received_wish'] = received_wish
+        context['my_wish'] = my_wish
+        context['received_wish'] = received_wish
         return render(request, template, context)

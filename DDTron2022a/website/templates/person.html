@@ -14,9 +14,11 @@
         <th>My wish</th>
         <td>{{ my_wish.wish_text }}</td>
     </tr>
+    {% if received_wish %}
     <tr>
         <th>Received wish </th>
         <td>{{ received_wish.wish_text }}</td>
-    </tr>    
+    </tr>   
+    {% endif %} 
 </table>
 {% endblock content %}
