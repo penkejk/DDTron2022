@@ -17,9 +17,17 @@ def get_received_wish(pk):
 
 
 def get_my_wish(pk):
-    related_wishes =   Wish.objects.select_related('author').filter(author_id=pk)
+    related_wishes = Wish.objects.select_related('author').filter(author_id=pk)
     if (len(related_wishes)==1):
         return related_wishes[0]
+    else:
+        return None
+
+
+def get_people(pk):
+    people = Person.objects.select_related().filter(group_id = pk)
+    if (len(people)>0):
+        return people
     else:
         return None
 
@@ -37,6 +45,14 @@ def person_view(request, pk):
         context['received_wish'] = received_wish
         return render(request, template, context)
 
+def group_view(request, pk):
+    template="group.html"
+    context={}
+    if request.method == "GET":
+        people = Person.objects.filter(group_id=pk).all()
+        context['people'] = people
+        return render(request, template, context)
+
 
 
 
@@ -45,5 +61,5 @@ def main_view(request):
     context = {}
     template = "main.html"
     if request.method == 'GET':
-        context["people"] = Person.objects.filter(group_id=1).all()
+        context["groups"] = Group.objects.all()
         return render(request, template, context)

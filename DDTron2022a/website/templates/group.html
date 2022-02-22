@@ -5,17 +5,16 @@
     {% csrf_token %}
     <input type="submit" value="Search">
 </form>
-<div>Available groups</div>
 <table style="border: 1px solid black; background-color: #96D4D4">
     <tr>
-        <th>Id</th>
-        <th>Group name</th>
+        <th>Member name</th>
+        <th>email</th>
     </tr>
-{% for group in groups %}
+{% for person in people %}
     <tr>
-        <td>{{ group.id }}</td>
-        <td>{{ group.group_name }}</td>
-        <td><a href="{% url 'group' group.id %}"> Enter group </a></td>
+        <td>{{ person.person_name }}</td>
+        <td>{{ person.person_email }}</td>
+        <td><a href="{% url 'person' person.id %}"> Enter </a></td>
     </tr>
 
 {% endfor %}
