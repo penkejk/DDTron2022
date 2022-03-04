@@ -23,7 +23,8 @@
         <th>My wish</th>
         <td>Enter your wish:</td>
         <td><input id="my_wish" type="text" placeholder="Enter your wish"></td>
-        <input type="submit" value="Save">
+        <input type="submit" value="Save">  
+
     </tr>
 
     {% endif %} 
@@ -34,5 +35,10 @@
         <td>{{ received_wish.wish_text }}</td>
     </tr>   
     {% endif %} 
+
+
+
 </table>
+
+{{ wish_form }}
 {% endblock content %}
