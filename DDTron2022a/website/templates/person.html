@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table style="border: 1px solid black; background-color: #96D4D4">
+    <tr>
+        <th>Email</th>
+        <td>{{ person.person_email }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ person.person_name }}</td>
+    </tr>
+
+    {% if my_wish %}
+    <tr>
+        <th>My wish</th>
+        <td>{{ my_wish.wish_text }}</td>
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <th>My wish</th>
+        <td>Enter your wish:</td>
+        <td><input id="my_wish" type="text" placeholder="Enter your wish"></td>
+        <input type="submit" value="Save">  
+
+    </tr>
+
+    {% endif %} 
+
+    {% if received_wish %}
+    <tr>
+        <th>Received wish </th>
+        <td>{{ received_wish.wish_text }}</td>
+    </tr>   
+    {% endif %} 
+
+
+
+</table>
+
+{{ wish_form }}
+{% endblock content %}
