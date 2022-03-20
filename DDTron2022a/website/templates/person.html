@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table style="border: 1px solid black; background-color: #96D4D4">
+<table class = 'table table-hover'>
     <tr>
         <th>Email</th>
         <td>{{ person.person_email }}</td>
@@ -23,7 +23,7 @@
         <th>My wish</th>
         <td>Enter your wish:</td>
         <td><input id="my_wish" type="text" placeholder="Enter your wish"></td>
-        <input type="submit" value="Save">  
+        <input class="btn btn-default" disabled="disabled" type="submit" value="Save">  
 
     </tr>
 
@@ -39,6 +39,4 @@
 
 
 </table>
-
-{{ wish_form }}
 {% endblock content %}

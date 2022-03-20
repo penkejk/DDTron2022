@@ -1,17 +1,19 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>DDTron python edition</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 
-<style>
+<!-- <style>
 
     td, th {
         text-align:left;
         padding: 5px;
     }
-</style>
+</style> -->
 
 <body>
 {% block content %}{% endblock content %}

@@ -3,10 +3,10 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <input type="submit" value="Search">
+    <input class="btn btn-default" disabled="disabled" type="submit" value="Search">
 </form>
 <div>Available groups</div>
-<table style="border: 1px solid black; background-color: #96D4D4">
+<table class = 'table table-hover'>
     <tr>
         <th>Id</th>
         <th>Group name</th>
